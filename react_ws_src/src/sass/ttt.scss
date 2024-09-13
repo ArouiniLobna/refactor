@@ -163,7 +163,10 @@ section#TTT_game {
       }
 
       &.win {
-        background: #f00;
+        background: #f00 !important;
+      }
+      &.disabled {
+        background-color: #ccc;
       }
     }
 

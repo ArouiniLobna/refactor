@@ -2,7 +2,7 @@ import React from "react";
 import { useGameContext } from "../../contexts/GameContext.js";
 import SetName from "./SetName.jsx";
 import SetGameType from "./SetGameType.jsx";
-import GameMain from "./GameMain.js";
+import GameMain from "./GameMain.jsx";
 
 const Ttt = () => {
   const { gameStep } = useGameContext();
