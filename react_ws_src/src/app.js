@@ -1,5 +1,7 @@
 import React from "react";
 import app from "ampersand-app";
+import { GameProvider } from "./contexts/GameContext.js";
+
 import { createRoot } from "react-dom/client";
 import {
   Router,
@@ -15,9 +17,9 @@ import "./sass/main.scss";
 
 import Main from "./views/Main";
 
-import Ttt from "./views/ttt/Ttt";
+import Ttt from "./views/ttt/Ttt.jsx";
 
-import Txt_page from "./views/pages/Txt_page";
+import Txt_page from "./views/pages/Txt_page.jsx";
 import PopUp_page from "./views/pages/PopUp_page";
 
 import Contact from "./views/pages/Contact";
@@ -30,22 +32,24 @@ const root = createRoot(container);
 
 let renderSite = function () {
   return root.render(
-    <Router history={browserHistory}>
-      <Route path="/" component={Main}>
-        <IndexRoute components={{ mainContent: Txt_page }} />
+    <GameProvider>
+      <Router history={browserHistory}>
+        <Route path="/" component={Main}>
+          <IndexRoute components={{ mainContent: Txt_page }} />
 
-        <Route path="/pg/(:page)" components={{ mainContent: Txt_page }} />
+          <Route path="/pg/(:page)" components={{ mainContent: Txt_page }} />
 
-        <Route path="/ttt" components={{ mainContent: Ttt }} />
+          <Route path="/ttt" components={{ mainContent: Ttt }} />
 
-        <Route path="/pupg/(:pu_page)" components={{ popup: PopUp_page }} />
+          <Route path="/pupg/(:pu_page)" components={{ popup: PopUp_page }} />
 
-        <Route path="/contact-us" components={{ popup: Contact }} />
+          <Route path="/contact-us" components={{ popup: Contact }} />
 
-        <Route path="/error/404" components={{ mainContent: ErrorPage }} />
-        <Route path="*" components={{ mainContent: ErrorPage }} />
-      </Route>
-    </Router>
+          <Route path="/error/404" components={{ mainContent: ErrorPage }} />
+          <Route path="*" components={{ mainContent: ErrorPage }} />
+        </Route>
+      </Router>
+    </GameProvider>
   );
 };
 
