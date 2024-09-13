@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Header from "./layouts/Header";
-import MainContent from "./layouts/MainContent";
-import Footer from "./layouts/Footer";
+import Header from "./layouts/Header.jsx";
+import MainContent from "./layouts/MainContent.jsx";
+import Footer from "./layouts/Footer.jsx";
 
 export default class Main extends Component {
   render() {
